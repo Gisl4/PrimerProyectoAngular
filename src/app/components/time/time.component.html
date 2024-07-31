@@ -1,6 +1,7 @@
 <div class="container">
     <br>
     <h4>Check the weather by city</h4>
+    <h5>{{date | date: 'dd/MM/yyyy'}}</h5>
     <div class="col-lg-6 col-md-6 alignment card">
         <form [formGroup]="formulario" (ngSubmit)="consult()" >
             <div class="form-group">
@@ -15,15 +16,18 @@
             </div>
             <button type="submit" class="btn btn-primary">Consult</button>
         </form>
+        <p class="text-danger" *ngIf="showError">{{mensajeError}}</p>
     </div>
     <div class="col-lg-6 col-md-6 alignment">
         <div class="card">
             <div class="card-body">
                 <ul>
-                    <li>Temperature:</li>
-                    <li>City:</li>
-                    <li>latitude:</li>
-                    <li>longitude:</li>
+                    <li>Descripción: {{ description }}</li>
+                    <li>Temperature: {{ temperature }}</li>
+                    <li>Humidity: {{ humidity }}</li>
+                    <li>City: {{ name | uppercase }}</li>
+                    <li>Latitude: {{ latitude }}</li>
+                    <li>Longitude: {{longitude }}</li>
                 </ul>
             </div>
         </div>

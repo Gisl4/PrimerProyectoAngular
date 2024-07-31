@@ -12,8 +12,8 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getEstadoTiempo(city: string){
-    const url = `${ urlBase }?q=${city}&appid=${appId}`;
+  getEstadoTiempo(city: string, code: string){
+    const url = `${ urlBase }?q=${city},${ code }&appid=${appId}`;
     return this.http.get(url);
   }
 }
